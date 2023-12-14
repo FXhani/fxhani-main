@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue3-template</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      let o1 = {
+        a: 1,
+        b: 2,
+      }
+      let o2 = {
+        a: 2,
+        b: 3,
+        d: 4,
+      }
+
+      function compareObjects(obj1, obj2) {
+        var keys = Object.keys(obj1)
+        for (var i = 0; i < keys.length; i++) {
+          var key = keys[i]
+          if (obj2.hasOwnProperty(key)) {
+            if (obj1[key] !== obj2[key]) {
+              obj1[key] = obj2[key]
+            }
+          }
+        }
+        return obj1
+      }
+      let obj = compareObjects(o1, o2)
+      console.log('obj', obj)
+    </script>
+  </body>
+</html>

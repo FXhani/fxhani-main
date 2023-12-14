@@ -1,0 +1,189 @@
+body {
+    // 清除浮动
+    .clearfix {
+        &::after {
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+            content: '';
+        }
+    }
+
+    // #region 文字样式区
+    .text-left {
+        text-align: left;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .w-s-n {
+        // 文字不换行
+        white-space: nowrap;
+    }
+
+    .oh-wn-te {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    // #endregion
+
+    // #region 排版样式区
+    .f-l {
+        float: left;
+    }
+
+    .f-r {
+        float: right;
+    }
+
+    .p-rela {
+        position: relative;
+    }
+
+    .p-abso {
+        position: absolute;
+    }
+
+    // #endregion
+
+    // #region flex布局样式区
+    .dis-flex {
+        display: flex;
+    }
+
+    .flex-nowrap {
+        flex-wrap: nowrap;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    .flex-dir-row {
+        flex-direction: row;
+    }
+
+    .flex-dir-column {
+        flex-direction: column;
+    }
+
+    .flex-x-center {
+        justify-content: center;
+    }
+
+    .flex-x-between {
+        justify-content: space-between;
+    }
+
+    .flex-x-around {
+        justify-content: space-around;
+    }
+
+    .flex-x-end {
+        justify-content: flex-end;
+    }
+
+    .flex-y-start {
+        align-items: flex-start;
+    }
+
+    .flex-y-center {
+        align-items: center;
+    }
+
+    .flex-y-end {
+        align-items: flex-end;
+    }
+
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // #endregion
+
+
+    // 定义宽度百分比
+    @for $i from 0 through 100 {
+        .w-#{$i} {
+            width: $i * 1% !important;
+        }
+    }
+
+    // 定义宽度具体值
+    @for $i from 99 through 400 {
+        .width-#{$i} {
+            width: $i + px !important;
+        }
+    }
+
+    // 定义flex等分
+    @for $i from 0 through 12 {
+        .flex-#{$i} {
+            flex: $i !important;
+        }
+    }
+
+    // 定义字体大小
+    @for $i from 11 to 36 {
+        .font-#{$i} {
+            font-size: $i + px !important;
+        }
+    }
+
+    // 定义内外边距，遍历1-80
+    @for $i from 0 through 80 {
+        // 只要偶数和能被5除尽的数
+        @if $i % 2==0 or $i % 5==0 {
+            // 得出：margin-30或者m-30
+            .margin-#{$i},
+            .m-#{$i} {
+                margin: $i + px !important;
+            }
+
+            // 得出：padding-30或者p-30
+            .padding-#{$i},
+            .p-#{$i} {
+                padding: $i + px !important;
+            }
+
+            @each $short,
+            $long in l left,
+            t top,
+            r right,
+            b bottom {
+                // 缩写版，如： m-l-30
+                // 定义外边距
+                .m-#{$short}-#{$i} {
+                    margin-#{$long}: $i + px !important;
+                }
+
+                // 定义内边距
+                .p-#{$short}-#{$i} {
+                    padding-#{$long}: $i + px !important;
+                }
+
+                // 完整版，如：margin-left-30
+                // 定义外边距
+                .margin-#{$long}-#{$i} {
+                    margin-#{$long}: $i + px !important;
+                }
+
+                // 定义内边距
+                .padding-#{$long}-#{$i} {
+                    padding-#{$long}: $i + px !important;
+                }
+            }
+        }
+    }
+}
