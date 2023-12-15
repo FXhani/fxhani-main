@@ -6,7 +6,6 @@ module.exports = {
     'stylelint-config-prettier',
     'stylelint-config-recommended-scss',
     'stylelint-config-standard-scss',
-    'stylelint-config-standard-vue',
   ],
   plugins: ['stylelint-order'],
   overrides: [
@@ -38,10 +37,8 @@ module.exports = {
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
     'no-empty-source': null, // 关闭禁止空源码
     'function-url-quotes': 'always', // 要求或禁止 URL 的引号 "always(必须加上引号)"|"never(没有引号)"
-    'string-quotes': 'single', // 字符串使用单引号
     'selector-class-pattern': null, // 关闭强制选择器类名的格式
     'property-no-unknown': null, // 禁止未知的属性(true 为不允许)
-    'block-opening-brace-space-before': 'always', //大括号之前必须有一个空格或不能有空白符
     'value-no-vendor-prefix': null, // 关闭 属性值前缀 --webkit-box
     'property-no-vendor-prefix': null, // 关闭 属性前缀 -webkit-mask
     'scss/at-import-partial-extension': null, // 解决不能使用 @import 引入 scss 文件
