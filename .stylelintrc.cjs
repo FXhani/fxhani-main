@@ -2,13 +2,13 @@
 
 module.exports = {
   extends: [
-    'stylelint-config-standard', // 配置 stylelint 拓展插件
-    'stylelint-config-prettier', // 配置 stylelint 和 prettier 兼容
-    'stylelint-config-html/vue', // 配置 vue 中 template 样式格式化
-    'stylelint-config-standard-scss', // 配置 stylelint scss 插件
-    'stylelint-config-recommended-vue/scss', // 配置 vue 中 scss 样式格式化
-    'stylelint-config-recess-order', // 配置stylelint css属性书写顺序插件,
+    'stylelint-config-standard',
+    'stylelint-config-prettier',
+    'stylelint-config-recommended-scss',
+    'stylelint-config-standard-scss',
+    'stylelint-config-standard-vue',
   ],
+  plugins: ['stylelint-order'],
   overrides: [
     {
       files: ['**/*.(scss|css|vue|html)'],
@@ -34,7 +34,6 @@ module.exports = {
   ],
   /* null  => 关闭该规则   always => 必须 */
   rules: {
-    'declaration-block-no-duplicate-properties': 'always',
     'value-keyword-case': null, // 在 css 中使用 v-bind，不报错
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
     'no-empty-source': null, // 关闭禁止空源码

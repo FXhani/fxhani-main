@@ -9,8 +9,8 @@ module.exports = {
   /* 继承已有的规则 */
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-essential',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
   /* 指定如何解析语法 */
@@ -25,7 +25,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'vue'],
+  plugins: ['vue', '@typescript-eslint'],
   /* 规则
    * "off" 或 0    ==>  关闭规则
    * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
