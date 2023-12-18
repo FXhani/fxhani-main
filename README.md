@@ -1,10 +1,10 @@
 # Vue 3 + TypeScript + Vite + Pinia 团队规范模板
 
-兼容性：Vite 需要 Node.js 版本 18+，20+。
+######	1. 兼容性：Vite 需要 Node.js 版本 18+，20+。
 
-lint-staged：只扫描暂存区的文件而不是全盘扫描，配合husky使用。
+######	2. lint-staged：只扫描暂存区的文件而不是全盘扫描，配合husky使用。
 
-husky：一个为git客户端增加hook的工具，运行npx husky install命令来生成.husky/目录及其内容。该目录会存放与Git Hooks相关的配置文件
+###### 3. husky：一个为git客户端增加hook的工具，运行npx husky install命令来生成.husky/目录及其内容。该目录会存放与Git Hooks相关的配置文件
 
 ```
 'feat', // 新功能
@@ -19,6 +19,7 @@ husky：一个为git客户端增加hook的工具，运行npx husky install命令
 javascript
 ```
 
-当我们commit提交信息时，必须是 git commit -m 'fix: xxxx' 符合类型的才可以，**需要注意的是类型后面需要用英文的冒号，并且冒号后面是需要空一格的**，比如：git commit -m 'fix: 修复xxx功能'
+当我们commit提交信息时，必须是 git commit -m 'fix: xxxx' 符合类型的才可以，**需要注意的是类型后面需要用英文的冒号，并且冒号后面是需要空一格的**，比如：git commit -m 'fix: 修复xxx功能'。当git commit 的时候会执行 lint-staged 会文件进行检查。
 
-prepare脚本会在npm/yarn install 之后自动运行，当项目被clone之后，会自动安装husky。
+###### 4. prepare脚本会在npm/yarn install 之后自动运行，当项目被clone之后，会自动安装husky。
+
