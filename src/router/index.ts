@@ -1,6 +1,23 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const routes: [] = []
+const routes = [
+  {
+    path: '/',
+    component: () => import('@/views/home/index.vue'),
+    name: 'Home',
+    meta: {
+      title: '首页',
+    },
+  },
+  {
+    path: '/screen',
+    component: () => import('@/views/screen/index.vue'),
+    name: 'Screen',
+    meta: {
+      title: '数据大屏',
+    },
+  },
+]
 
 //创建路由器
 const router = createRouter({
