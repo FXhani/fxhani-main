@@ -1,11 +1,9 @@
-// @see https://stylelint.bootcss.com/
-
 module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-prettier',
-    'stylelint-config-recommended-scss',
     'stylelint-config-standard-scss',
+    'stylelint-config-recommended-vue/scss',
   ],
   plugins: ['stylelint-order'],
   overrides: [
@@ -18,7 +16,6 @@ module.exports = {
       customSyntax: 'postcss-html',
     },
   ],
-  /* 忽略的文件 */
   ignoreFiles: [
     '**/*.js',
     '**/*.jsx',
@@ -27,12 +24,9 @@ module.exports = {
     '**/*.json',
     '**/*.md',
     '**/*.yaml',
-    'node_modules/**/*',
-    '.vscode/**/*',
-    'dist/**/*',
   ],
-  /* null  => 关闭该规则   always => 必须 */
   rules: {
+    'declaration-property-value-no-unknown': true,
     'value-keyword-case': null, // 在 css 中使用 v-bind，不报错
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
     'no-empty-source': null, // 关闭禁止空源码
@@ -43,18 +37,95 @@ module.exports = {
     'value-no-vendor-prefix': null, // 关闭 属性值前缀 --webkit-box
     'property-no-vendor-prefix': null, // 关闭 属性前缀 -webkit-mask
     'scss/at-import-partial-extension': null, // 解决不能使用 @import 引入 scss 文件
-    'selector-pseudo-class-no-unknown': [
-      // 不允许未知的选择器
+    'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['global', 'v-deep', 'deep'], // 忽略属性，修改 element 默认样式的时候能使用到
+        ignorePseudoElements: ['v-deep'],
       },
     ],
-    'annotation-no-unknown': [
+    'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignoreAnnotations: ['/regex/', /regex/, 'string'],
+        ignorePseudoClasses: ['deep'],
       },
+    ],
+    'order/properties-order': [
+      'position',
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'z-index',
+      'display',
+      'justify-content',
+      'align-items',
+      'float',
+      'clear',
+      'overflow',
+      'overflow-x',
+      'overflow-y',
+      'margin',
+      'margin-top',
+      'margin-right',
+      'margin-bottom',
+      'margin-left',
+      'padding',
+      'padding-top',
+      'padding-right',
+      'padding-bottom',
+      'padding-left',
+      'width',
+      'min-width',
+      'max-width',
+      'height',
+      'min-height',
+      'max-height',
+      'font-size',
+      'font-family',
+      'font-weight',
+      'text-align',
+      'text-justify',
+      'text-indent',
+      'text-overflow',
+      'text-decoration',
+      'white-space',
+      'color',
+      'background',
+      'background-position',
+      'background-repeat',
+      'background-size',
+      'background-color',
+      'background-clip',
+      'border',
+      'border-style',
+      'border-width',
+      'border-color',
+      'border-top',
+      'border-top-style',
+      'border-top-width',
+      'border-top-color',
+      'border-right',
+      'border-right-style',
+      'border-right-width',
+      'border-right-color',
+      'border-bottom',
+      'border-bottom-style',
+      'border-bottom-width',
+      'border-bottom-color',
+      'border-left',
+      'border-left-style',
+      'border-left-width',
+      'border-left-color',
+      'border-radius',
+      'opacity',
+      'filter',
+      'list-style',
+      'outline',
+      'visibility',
+      'box-shadow',
+      'text-shadow',
+      'resize',
+      'transition',
     ],
   },
 }
